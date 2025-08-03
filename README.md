@@ -4,6 +4,7 @@ lacam
 [![CI](https://github.com/Kei18/lacam/actions/workflows/ci.yml/badge.svg)](https://github.com/Kei18/fast-mapf/actions/workflows/ci.yml)
 
 The code repository of the paper ["LaCAM: Search-Based Algorithm for Quick Multi-Agent Pathfinding"](https://kei18.github.io/lacam) (AAAI-23).
+Now supports both square and hexagonal grids!
 
 ## Building
 
@@ -34,9 +35,23 @@ docker compose exec dev bash
 
 ## Usage
 
+### Square Grid (Default)
 ```sh
 build/main -i assets/random-32-32-10-random-1.scen -m assets/random-32-32-10.map -N 50 -v 1
 ```
+
+### Hexagonal Grid
+```sh
+# Using hexagonal grid with odd-row configuration (default)
+build/main -m assets/hex-4-4.map -i assets/hex-4-4.scen -N 2 -g hex
+
+# Using hexagonal grid with specific configuration
+build/main -m assets/hex-4-4.map -i assets/hex-4-4.scen -N 2 -g hex -hc odd-row
+build/main -m assets/hex-4-4.map -i assets/hex-4-4.scen -N 2 -g hex -hc even-row
+build/main -m assets/hex-4-4.map -i assets/hex-4-4.scen -N 2 -g hex -hc odd-column
+build/main -m assets/hex-4-4.map -i assets/hex-4-4.scen -N 2 -g hex -hc even-column
+```
+
 The result will be saved in `build/result.txt`.
 
 <details><summary>Output File</summary>
@@ -76,7 +91,26 @@ build/main --help
 
 ## Visualizer
 
-[@Kei18/mapf-visualizer](https://github.com/kei18/mapf-visualizer) is available.
+This repository is compatible with [kei18@mapf-visualizer](https://github.com/kei18/mapf-visualizer).
+For example,
+
+```sh
+mapf-visualizer assets/random-32-32-10.map build/result.txt
+```
+
+## Grid Types
+
+### Square Grid
+The traditional square grid with 4-connected movement (up, down, left, right).
+
+### Hexagonal Grid
+Support for hexagonal grids with 6-connected movement. Four different coordinate systems are supported:
+- **odd-row**: Odd rows are offset to the right
+- **even-row**: Even rows are offset to the right  
+- **odd-column**: Odd columns are offset down
+- **even-column**: Even columns are offset down
+
+The hexagonal grid implementation follows the offset coordinate system described in [Red Blob Games' Hexagonal Grids](https://www.redblobgames.com/grids/hexagons/#neighbors-offset).
 
 ## Experiments
 
