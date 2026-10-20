@@ -1,7 +1,9 @@
 lacam
 ---
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-[![CI](https://github.com/Kei18/lacam/actions/workflows/ci.yml/badge.svg)](https://github.com/Kei18/fast-mapf/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23475645.svg)](https://doi.org/10.5281/zenodo.23475645)
+
+> **Hexagonal LaCAM.** This repository is a modified version of [Kei18/lacam](https://github.com/Kei18/lacam) by Keisuke Okumura, the code of the paper "LaCAM: Search-Based Algorithm for Quick Multi-Agent Pathfinding" (AAAI-23). It adds hexagonal grids (odd-row, even-row, odd-column and even-column layouts) to the original square grids. Version 1.0.0 is archived on Zenodo: [10.5281/zenodo.23475645](https://doi.org/10.5281/zenodo.23475645). If you use it, please cite both the original paper and this archive (see [CITATION.cff](CITATION.cff)).
 
 The code repository of the paper ["LaCAM: Search-Based Algorithm for Quick Multi-Agent Pathfinding"](https://kei18.github.io/lacam) (AAAI-23).
 Now supports both square and hexagonal grids!
@@ -13,8 +15,8 @@ All you need is [CMake](https://cmake.org/) (≥v3.16). The code is written in C
 First, clone this repo with submodules.
 
 ```sh
-git clone --recursive https://github.com/Kei18/lacam.git
-cd lacam
+git clone --recursive https://github.com/syedjameel/hexagonal-lacam.git
+cd hexagonal-lacam
 ```
 Then, build the project.
 
